@@ -39,6 +39,6 @@ python scripts/fetch_monthly_all.py   # monthly CA DMAs -> data/food_bank_trends
 python scripts/embed_data.py          # rebuild the data block inside index.html
 ```
 
-`fetch_us_states.py` pulls the state series. Credentials live in `.env` (`client_id`, `client_secret`) and `token.json`; both are gitignored. A GitHub Actions workflow (`.github/workflows/refresh-data.yml`) can run the refresh weekly; it needs a `TOKEN_JSON` repository secret.
+`fetch_us_states.py` pulls the state series. Credentials live in `.env` (`client_id`, `client_secret`) and `token.json`; both are gitignored.
 
 Scripts in `scripts/legacy/` are superseded and kept for reference only.
