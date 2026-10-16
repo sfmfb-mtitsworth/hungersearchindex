@@ -19,3 +19,7 @@ embedded_data.json
 .vscode/
 .idea/
 *.swp
+
+# Raw Census HPS workbooks (large, re-downloadable)
+data/hps_raw/
+
