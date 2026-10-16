@@ -25,9 +25,9 @@ Caveats:
 
 - `food_bank_trends_california_dma.csv` — weekly series for the same 10 DMAs (read by the dashboard).
 - `food_bank_trends_us_states_monthly.csv` — monthly series, 50 states + DC (~5-year window).
-- `food_bank_trends_us_dma_monthly.csv` — monthly series, US DMAs.
+- `food_bank_trends_us_dma_monthly_last24.csv` — monthly series, Oct 2024 to Sep 2026, for the 190 US DMAs with complete data (of ~210). DMA names outside California are third-party labels (`name_verified=False`); codes are authoritative. `food_bank_trends_us_dma_monthly.csv` is the full 3-year pull the fetch script resumes from.
 - `hps_food_insufficiency_state.csv` — Census HPS food-insufficiency rate by state and period (`period, end_date, state_code, pct_insufficient, total_reporting`). Source: Census Household Pulse Survey public files; the raw workbooks are not stored in the repo.
-- `term_validation_*.json`, `sparse_dmas_monthly.csv`, `food_bank_trends_arizona_monthly.csv` — one-off diagnostics for choosing the query term and checking low-volume geos.
+- `term_validation_*.json` — one-off diagnostics for choosing the query term and checking low-volume geos.
 
 ## Refreshing the data
 

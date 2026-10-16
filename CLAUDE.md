@@ -16,7 +16,7 @@ No package manager, lockfile, or test suite. Scripts run directly with Python fr
 ```
 python scripts/reauth.py                 # refresh token.json via local OAuth flow on localhost:8888 (run first if a fetch 401s)
 python scripts/fetch_monthly_all.py      # monthly series, all 10 CA DMAs -> data/food_bank_trends_california_dma_monthly.csv
-python scripts/fetch_monthly_sparse.py   # diagnostic: the 3 low-volume DMAs -> data/sparse_dmas_monthly.csv (NOT read by embed_data.py)
+python scripts/fetch_monthly_sparse.py   # diagnostic: the 3 low-volume DMAs (diagnostic; its output CSV was removed from the repo, not read by embed_data.py)
 python scripts/fetch_us_states.py        # monthly series, all 50 states + DC -> data/food_bank_trends_us_states_monthly.csv
 python scripts/embed_data.py             # rebuild the `const DATA = {...}` block inside index.html from the CSVs in data/
 python scripts/probe_geo.py              # ad-hoc probe of which geo/breakdown-resolution combos the API accepts
@@ -55,7 +55,6 @@ Three DMAs — Bakersfield `800`, Chico-Redding `813`, Santa Barbara `868` — h
 - `hps_food_insufficiency_state.csv` — the flattened extract: `period, end_date, state_code, pct_insufficient, total_reporting`, 42 periods × 51 states. This is the ground-truth series to correlate search interest against.
 - `term_validation_national.json` — national monthly `raw`/`scaled` series for five candidate terms ("food bank", "foodbank", "food pantry", "food bank near me", "food bank donation"), for choosing which query to track.
 - `term_validation_sparse_states.json` — the same comparison for WY/VT/MT, to see which term survives in low-volume geos.
-- `food_bank_trends_arizona_monthly.csv` — one-off single-state pull; schema differs from the other CSVs (`period_start` is `YYYY-MM`, no state columns).
 
 **Legacy/superseded scripts** — present from the first commit, not part of the current pipeline: `scripts/legacy/food_bank_trends.py` (weekly-only fetch, writes CSV to repo root not `data/`), `scripts/legacy/build_dashboard.py` and `scripts/legacy/build_dashboard_data.py` (generate a standalone `hunger_signal_dashboard.html`/stats print with only weekly data, no tabs), `scripts/legacy/sample.py` (Google's Flask OAuth example, verbatim). Don't extend these — extend `embed_data.py` and the `fetch_*` scripts instead. Note that `data/food_bank_trends_california_dma.csv` (the weekly file `embed_data.py` depends on) has no current producer script; it was moved into `data/` by hand.
 
