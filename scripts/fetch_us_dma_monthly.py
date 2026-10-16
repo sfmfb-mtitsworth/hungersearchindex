@@ -248,7 +248,7 @@ DMA_CODES = sorted(DMA_NAMES.keys(), key=int)
 start_time = datetime.now(timezone.utc) - timedelta(days=3 + 365 * 3)
 end_time   = datetime.now(timezone.utc) - timedelta(days=3)
 
-OUT = "data/food_bank_trends_us_dma_monthly.csv"
+OUT = "data/archive/food_bank_trends_us_dma_monthly.csv"
 FIELDNAMES = [
     "dma_code", "dma_name", "name_verified",
     "period_start", "period_end",

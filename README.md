@@ -2,8 +2,6 @@
 
 Search interest for **"food bank"** across California's 10 Designated Market Areas (DMAs), from the Google Trends API (alpha). The repo holds the data, the scripts that fetch it, and a static dashboard (`index.html`, no build step) that visualizes it.
 
-A second line of work (not on the dashboard) compares national/state search series against Census Household Pulse Survey (HPS) food-insufficiency rates, to test whether the search signal tracks measured food insecurity.
-
 ## Data to share: California DMA monthly
 
 [`data/food_bank_trends_california_dma_monthly_last24.csv`](data/food_bank_trends_california_dma_monthly_last24.csv) — Oct 2024 to Oct 2026, 10 DMAs, 250 rows. The full series (Jan 2024 onward) is [`data/food_bank_trends_california_dma_monthly.csv`](data/food_bank_trends_california_dma_monthly.csv).
@@ -25,9 +23,8 @@ Caveats:
 
 - `food_bank_trends_california_dma.csv` — weekly series for the same 10 DMAs (read by the dashboard).
 - `food_bank_trends_us_states_monthly.csv` — monthly series, 50 states + DC (~5-year window).
-- `food_bank_trends_us_dma_monthly_last24.csv` — monthly series, Oct 2024 to Sep 2026, for the 190 US DMAs with complete data (of ~210). DMA names outside California are third-party labels (`name_verified=False`); codes are authoritative. `food_bank_trends_us_dma_monthly.csv` is the full 3-year pull the fetch script resumes from.
-- `hps_food_insufficiency_state.csv` — Census HPS food-insufficiency rate by state and period (`period, end_date, state_code, pct_insufficient, total_reporting`). Source: Census Household Pulse Survey public files; the raw workbooks are not stored in the repo.
-- `term_validation_*.json` — one-off diagnostics for choosing the query term and checking low-volume geos.
+- `food_bank_trends_us_dma_monthly_last24.csv` — monthly series, Oct 2024 to Sep 2026, for the 190 US DMAs with complete data (of ~210). DMA names outside California are third-party labels (`name_verified=False`); codes are authoritative.
+- `archive/` — older or intermediate files not needed for sharing: the full 3-year US DMA pull (the fetch script resumes from it) and `term_validation_*.json` diagnostics for choosing the query term.
 
 ## Refreshing the data
 

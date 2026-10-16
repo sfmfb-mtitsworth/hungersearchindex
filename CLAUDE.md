@@ -51,10 +51,10 @@ Three DMAs — Bakersfield `800`, Chico-Redding `813`, Santa Barbara `868` — h
 **`index.html`** is self-contained (HTML+CSS+JS, no external deps, no build tooling) with tabs for weekly vs. monthly views. It renders a canvas hero chart of the statewide aggregate, an SVG bubble map of DMAs sized by volume, a ranked list, and a small-multiples sparkline grid — all driven by properties read off the embedded `DATA` object at render time. Edit chart/interaction logic in the JS inside `index.html`; edit what data that JS can see in `embed_data.py`, then rerun it.
 
 **Validation data** (`data/`, all untracked, produced ad hoc — there is no script in the repo that generates these; regenerating them means writing new code):
-- `hps_raw/*.xlsx` — raw Census HPS week/cycle workbooks, 2021 wk30 → 2024 cycle09 (~22 MB, not gitignored).
-- `hps_food_insufficiency_state.csv` — the flattened extract: `period, end_date, state_code, pct_insufficient, total_reporting`, 42 periods × 51 states. This is the ground-truth series to correlate search interest against.
-- `term_validation_national.json` — national monthly `raw`/`scaled` series for five candidate terms ("food bank", "foodbank", "food pantry", "food bank near me", "food bank donation"), for choosing which query to track.
-- `term_validation_sparse_states.json` — the same comparison for WY/VT/MT, to see which term survives in low-volume geos.
+- `hps_raw/*.xlsx` — raw Census HPS week/cycle workbooks, 2021 wk30 → 2024 cycle09 (~22 MB, now gitignored).
+- `hps_food_insufficiency_state.csv` (local only, gitignored; removed from the repo) — the flattened extract: `period, end_date, state_code, pct_insufficient, total_reporting`, 42 periods × 51 states. This is the ground-truth series to correlate search interest against.
+- `archive/term_validation_national.json` — national monthly `raw`/`scaled` series for five candidate terms ("food bank", "foodbank", "food pantry", "food bank near me", "food bank donation"), for choosing which query to track.
+- `archive/term_validation_sparse_states.json` — the same comparison for WY/VT/MT, to see which term survives in low-volume geos.
 
 **Legacy/superseded scripts** — present from the first commit, not part of the current pipeline: `scripts/legacy/food_bank_trends.py` (weekly-only fetch, writes CSV to repo root not `data/`), `scripts/legacy/build_dashboard.py` and `scripts/legacy/build_dashboard_data.py` (generate a standalone `hunger_signal_dashboard.html`/stats print with only weekly data, no tabs), `scripts/legacy/sample.py` (Google's Flask OAuth example, verbatim). Don't extend these — extend `embed_data.py` and the `fetch_*` scripts instead. Note that `data/food_bank_trends_california_dma.csv` (the weekly file `embed_data.py` depends on) has no current producer script; it was moved into `data/` by hand.
 
